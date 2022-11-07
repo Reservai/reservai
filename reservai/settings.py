@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
-from django.contrib.messages import costants as messages
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-x1q1np145x=ua+0^aa)$xuf**ludxgrbhd051knt-r&krh@f2g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -59,7 +58,7 @@ ROOT_URLCONF = 'reservai.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'reservai',
-        'USER': 'reservai',
-        'PASSWORD': 'reservai',
+        'USER': 'postgres',
+        'PASSWORD': 'CLARA1126',
         'HOST': 'localhost',
     }
 }

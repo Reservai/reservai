@@ -36,7 +36,44 @@ def cadastro(request):
             messages.error(request,'Usuário já cadastrado no sistema!')
             return redirect('cadastro')
 
+        #Cria o objeto e grava no banco
+        user = User.objects.create_user(username=nome, email=email, password=senha)
+        user.save()
 
+        print('Usuário cadastrado com sucesso!')
+        messages.success(request,'Usuário cadastrado com sucesso!')
+        return redirect('login')
+    else:
+        return render(request,'usuarios/cadastro.html')
+
+def login(request):
+    if request.method == 'POST':
+        email   = request.POST['email'] #Pega as informações digitadas no login
+        senha   = request.POST['senha'] 
+
+        if campo_vazio(email) or campo_vazio(senha):
+            messages.error(request,'Os campos email e senha não podem ficar em branco!')
+            return redirect('login')
+
+        if User.objects.filter(email=email).exists(): #Se o usuário já existe 
+            nome = User.objects.filter(email=email).values_list('username', flat=True).get() #Busca o nome do usuário para a autenticação
+            user = auth.authenticate(request, username=nome, password=senha)
+            if user is not None:
+                auth.login(request, user)
+                messages.success(request,'Login realizado com sucesso!')
+                return redirect('dashboard')
+
+    return render(request,'usuarios/login.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('index')
+
+def dashboard(request):
+    if request.user.is_authenticated:
+        return render(request,'usuarios/dashboard.html')
+    else:
+        return redirect('index')
 
 def campo_vazio(campo):
     return not campo.strip()
