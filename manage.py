@@ -5,6 +5,7 @@ import sys
 
 
 def main():
+    print()
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'reservai.settings')
     try:

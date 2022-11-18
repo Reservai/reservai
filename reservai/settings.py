@@ -15,8 +15,7 @@ from pathlib import Path
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -81,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'reservai',
-        'USER': 'postgres',
-        'PASSWORD': 'CLARA1126',
+        'USER': 'reservai',
+        'PASSWORD': 'reservai',
         'HOST': 'localhost',
     }
 }
@@ -122,9 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 STATIC_ROOT= os.path.join(BASE_DIR,'static')
+
 STATIC_URL = '/static/'
-STAITCFILES_DIRS = [
-    os.path.join(BASE_DIR,'reservai/static')
+
+STATICFILES_DIRS  = [
+    os.path.join(BASE_DIR,'reservai/static'),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')

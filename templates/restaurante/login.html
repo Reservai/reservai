@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="preloader">
+    <i class="circle-preloader"></i>
+    <img src="{% static 'img/core-img/pizza.png' %}" alt="">
+</div>
+<div class="full-container d-flex h-100 justify-content-center" style="height: 100vh;">
+    <div class="d-flex w-50" style="height: 100vh;background-color:#E84113;">
+        <h1 class="title">
+            SEJA BEM VINDO
+        </h1>
+        <p>Entre com seus dados corretamente para acessar o sistema.</p>
+        <p>Se não possui cadastro, cliquei aqui</p>
+    </div>
+    <div class="d-flex flex-row w-50" style="height: 100vh;background-color:transparent;">
+        <p>oi</p>
+    </div>
+</div>
+{% endblock %}
