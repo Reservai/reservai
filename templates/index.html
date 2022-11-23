@@ -20,14 +20,21 @@
                         <div class="single-best-receipe-area mb-30">
                             <img src="img/bg-img/foto_receita.png" alt="">
                             <div class="receipe-content">
-                                <a href="">
+                                <!-- <a href="">
                                     <h5>REstaurantes</h5>
-                                </a>
+                                    {% if restaurantes %}
+                                        {% for restaurante in restaurantes %}
+                                            <img src="{{restaurante.imagem}}" alt="">
+                                            <p>{{ restaurante.nome }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                </a> -->
                             </div>
                         </div>
                     </div>
             </div>
         </div>
+        
     </section>
     <!-- ##### Best Receipe Area End ##### -->
 

@@ -1,0 +1,42 @@
+[
+    {
+        "model":"auth.User",
+        "fields":{
+            "password":"123456",
+            "username": "00.000.000/0001-00",
+            "email":"00.000.000/0001-00"
+        }
+    },
+    {
+        "model":"auth.User",
+        "fields":{
+            "password":"123456",
+            "username": "00.000.000/0001-02",
+            "email":"00.000.000/0001-02"
+        }
+    },
+    {
+        "model":"auth.User",
+        "fields":{
+            "password":"123456",
+            "username": "00.000.000/0001-03",
+            "email":"00.000.000/0001-03"
+        }
+    },
+    {
+        "model":"auth.User",
+        "fields":{
+            "password":"123456",
+            "username": "00.000.000/0001-04",
+            "email":"00.000.000/0001-04"
+        }
+    },
+    {
+        "model":"auth.User",
+        "fields":{
+            "password":"123456",
+            "username": "00.000.000/0001-05",
+            "email":"00.000.000/0001-05"
+        }
+    }
+]

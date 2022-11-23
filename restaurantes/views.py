@@ -5,12 +5,11 @@ from restaurantes.models import Restaurantes
 from  django.contrib.auth.models import User
 
 def index(request):
-    restaurantes = Restaurantes.objects.all
+    restaurantes = Restaurantes.objects.all()
 
     dados = {
         'restaurantes' : restaurantes
     }
-
     return render(request,'index.html',dados)
 
 def cadastro(request):
@@ -79,7 +78,7 @@ def cadastro(request):
 def login(request):
     if request.method == 'POST':
         cnpj = request.POST['cnpj']
-        senha = request.POST['password']
+        senha = request.POST['senha']
 
         if campo_vazio(cnpj):
             messages.error(request, 'O campo cnpj não pode estar vazio')
@@ -91,15 +90,17 @@ def login(request):
         
         if Restaurantes.objects.filter(cnpj=cnpj).exists(): #Se o usuário já existe 
             nome = Restaurantes.objects.filter(cnpj=cnpj).values_list('cnpj', flat=True).get() #Busca o nome do usuário para a autenticação
-            user = Restaurantes.authenticate(request, username=nome, password=senha,email=cnpj)
+            print(nome, senha, cnpj)
+            user = auth.authenticate(request, username=nome, password=senha).check_password(senha)
+            print("Usuario existe")
+            print(user)
             if user is not None:
+                print(user)
                 auth.login(request, user)
                 messages.success(request,'Login realizado com sucesso!')
-                #return redirect('dashboard')
-                print("Login realizado com sucesso!")
-                return 0
+                return redirect('dashboard')
+    
+    return render(request,'restaurante/login.html')
 
-    else:
-        return render(request,'restaurante/login.html')
 def campo_vazio(campo):
     return not campo.strip()

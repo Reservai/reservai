@@ -1,0 +1,62 @@
+[
+    {
+        "model":"restaurantes.Restaurantes",
+        "fields":{
+            "nome":"Niu Sushi",
+            "endereco":"Max Colin 1756, Joinville",
+            "cnpj": "00.000.000/0001-00",
+            "descricao": "Restaurante de comida japonesa",
+            "imagem": "static/logoReservai.png",
+            "telefone":"47 99999-9999",
+            "senha":"123456"
+        }
+    },
+    {
+        "model":"restaurantes.Restaurantes",
+        "fields":{
+            "nome":"Goa gastronomia",
+            "endereco":"Max Colin 1756, Joinville",
+            "cnpj": "00.000.000/0001-02",
+            "descricao": "Restaurante variado",
+            "imagem": "static/logoReservai.png",
+            "telefone":"47 99999-9999",
+            "senha":"123456"
+        }
+    },
+    {
+        "model":"restaurantes.Restaurantes",
+        "fields":{
+            "nome":"Xande lanches",
+            "endereco":"Av. Beira Rio 1756, Joinville",
+            "cnpj": "00.000.000/0001-03",
+            "descricao": "Lanches até 3 horas da manhã",
+            "imagem": "static/logoReservai.png",
+            "telefone":"47 99999-9999",
+            "senha":"123456"
+        }
+    },
+    {
+        "model":"restaurantes.Restaurantes",
+        "fields":{
+            "nome":"Adriano Lanches",
+            "endereco":"Av. Getúlio Vargas, 850 - Anita Garibaldi, Joinville - SC",
+            "cnpj": "00.000.000/0001-04",
+            "descricao": "Lanches do Adriano, com amor e carinho",
+            "imagem": "static/logoReservai.png",
+            "telefone":"47 99999-9999",
+            "senha":"123456"
+        }
+    },
+    {
+        "model":"restaurantes.Restaurantes",
+        "fields":{
+            "nome":"Habibs",
+            "endereco":"Rua Joao Colin, 7832, America - Joinville",
+            "cnpj": "00.000.000/0001-05",
+            "descricao": "Não temos comida do Catar",
+            "imagem": "static/logoReservai.png",
+            "telefone":"47 99999-9999",
+            "senha":"123456"
+        }
+    }
+]
