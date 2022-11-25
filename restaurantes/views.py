@@ -3,6 +3,7 @@ from .models import Restaurantes
 from django.contrib import auth, messages
 from restaurantes.models import Restaurantes
 from  django.contrib.auth.models import User
+from .models import Restaurantes
 
 def index(request):
     restaurantes = Restaurantes.objects.all()
@@ -11,6 +12,31 @@ def index(request):
         'restaurantes' : restaurantes
     }
     return render(request,'index.html',dados)
+
+def restaurante(request,restaurante_id):
+    restaurante = get_object_or_404(Restaurantes, pk=restaurante_id)
+
+    restaurante_a_exibir = {
+        'restaurante' : restaurante
+    }
+
+    return render(request,'restaurante.html',restaurante_a_exibir)
+
+
+def buscar(request):
+    lista_restaurantes = Restaurantes.objects.all()
+
+    if 'buscar' in request.GET:  #caso eu tenha um valor na busca
+        nome_a_buscar = request.GET['buscar']
+        if buscar:
+            lista_restaurantes = lista_restaurantes.filter(nome__icontains = nome_a_buscar) #buscar o que contem 
+
+    dados = {
+        'restaurantes' : lista_restaurantes
+    }
+
+    return render(request, 'buscar.html', dados)
+
 
 def cadastro(request):
     if request.method == 'POST':
